@@ -1,0 +1,150 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Tempo de geração: 19/05/2020 às 01:25
+-- Versão do servidor: 10.4.6-MariaDB
+-- Versão do PHP: 7.3.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `Letteldatabase`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `dados`
+--
+
+CREATE TABLE `dados` (
+  `id` int(5) NOT NULL,
+  `requisitos` varchar(600) NOT NULL,
+  `id_pk_switches` int(5) NOT NULL,
+  `atende` varchar(10) NOT NULL,
+  `orgao` varchar(50) NOT NULL,
+  `resposta` varchar(600) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Despejando dados para a tabela `dados`
+--
+
+INSERT INTO `dados` (`id`, `requisitos`, `id_pk_switches`, `atende`, `orgao`, `resposta`) VALUES
+(2, 'requsitos 1', 1, 'SIM', 'TRF1', ''),
+(3, '8.9 Possuir porta de console para ligação direta e por meio de terminal RS-232 ou USB para acesso a interface de linha de comando.', 5, 'SIM', 'TC-DF', ''),
+(4, '8.10 Deverão possuir funcionalidade que permita configuração automática de portas de acordo com o equipamento conectado;', 5, 'SIM', 'TC-DF', ''),
+(5, 'No caso de autenticação via MAC o equipamento deve possuir mecanismo que possibilite a troca da password que será enviada ao servidor RADIUS externo;<hr> Ex: mac-authentication password-override.', 3, 'NÃO', 'SANEPAR', ''),
+(6, 'Deverá ser apresentado certificado de interoperabilidade, válido, fornecido pela Wi-Fi Alliance na categoria de Enterprise Access Point.', 20, 'SIM', 'MP-MA', ''),
+(7, 'Deverá atender aos padrões IEEE 802.11d e IEEE 802.11h.', 20, 'SIM', 'MP-MA', ''),
+(8, 'Deverá suportar canalização de 20 MHz, 40 MHz e 80 MHz.', 20, 'SIM', 'MP-MA', ''),
+(9, 'Deverá suportar Multi User MIMO (MU-MIMO).', 20, 'SIM', 'MP-MA', ''),
+(10, 'Deverá suportar explicitamente TxBF ou Beamforming.', 20, 'SIM', 'MP-MA', ''),
+(11, 'O injetor PoE deverá possuir LED para a indicação do status de Alimentação Elétrica do Equipamento (Ligado).', 20, 'SIM', 'MP-MA', ''),
+(12, 'Deverá suportar temperatura de operação entre 0°C a 40°C com PoE ativado.', 20, 'SIM', 'MP-MA', ''),
+(13, 'Deverá suportar a utilização de sistema antifurto do tipo Kensington Lock ou similar, que permita a instalação de um cabo de segurança (a ser fornecido pela CONTRATADA) com a finalidade de evitar furto do equipamento.', 20, 'SIM', 'MP-MA', ''),
+(14, 'Deverá permitir gerenciamento através de plataformas de software que sigam padrões SNMPv2c e SNMPv3 ou HTTPS.', 20, 'NÃO', 'MP-MA', 'Alterar para \"Deverá permitir gerenciamento através de plataformas de software que sigam padrões SNMPv2c e SNMPv3 ou outro protocolo com criptografia TLS 1.2 e  HTTPS.\" Suportamos HTTPS,  SNMP v1 e v2c mas a gerencia á via MQTT com TLS 1.2'),
+(15, 'Deverá permitir que sua configuração seja automaticamente realizada quando o “Ponto de Acesso Sem Fio” for conectado no ambiente de Rede Local Cabeada (LAN) da “Solução de Gerenciamento de Rede Local Sem Fio” especificada no TERMO DE REFERÊNCIA.', 20, 'SIM', 'MP-MA', ''),
+(16, 'A solução ofertada deverá possuir interface de configuração via Command Line Interface (CLI).', 20, 'NÃO', 'MP-MA', 'A gerencia dos AP\'s é feita local ou através da Solução de Gerenciamento de Rede Local Sem Fio. Alterar o item para \"A solução ofertada deverá permitir acesso via Command Line Interface (CLI) através de SSH e Porta Console.'),
+(17, 'Deverá possuir botão “reset”, funcionalidade ou comando alternativo, com capacidade de restaurar todas as configurações padrões de fábrica.', 20, 'SIM', 'MP-MA', ''),
+(18, 'Cumprir a especificação SFF-8472 - Specification for Diagnostic Monitoring lnterface for Optical Transceivers.', 26, 'NÃO', 'TRE-CE', 'SUGESTÃO: Alterar para \"4. Cumprir a especificação SFF-8472 - Specification for Diagnostic Monitoring lnterface for Optical Transceivers ou <b> 802.3 Clause 52</b>\"'),
+(19, 'Cumprir a especificação SFF-8431 - Specifications for Enhanced Small Form Factor Pluggable Module SFP+.', 26, 'NÃO', 'TRE-CE', 'SUGESTÃO: Alterar para \"Cumprir a especificação SFF-8431 - Specifications for Enhanced Small Form Factor Pluggable Module SFP+ ou  802.3ba e QSFP+ MSA\"'),
+(20, 'Permitir conectar fibras ópticas multimodo, devendo ser compatível com o padrão 10GBase-SR para fibras de até 400m de comprimento.', 26, 'NÃO', 'TRE-CE', 'SUGESTÃO: Alterar para \"Permitir conectar fibras ópticas multimodo, devendo ser compatível com o padrão 10GBase-SR para fibras de até 300m de comprimento.\" '),
+(21, 'Caso seja fornecida em máquina virtual, deve estar totalmente licenciada para instalação e funcionamento, devendo ser compatível com a plataforma de virtualização KVM (http://www.linux-kvm.org/) e, também, uma das seguintes outras: Microsoft HyperV ou VMWare vSphere Hypervisor ou VMWare ESXi na versão 5.5 ou superior.', 27, 'NÃO', 'TRE-CE', 'SUGESTÃO: Alterar para \"Caso seja fornecida em máquina virtual, deve estar totalmente licenciada para instalação e funcionamento, devendo ser compatível com a plataforma de virtualização KVM (http://www.linux-kvm.org/) ou uma das seguintes outras: Microsoft HyperV ou VMWare vSphere Hypervisor ou VMWare ESXi na versão 5.5 ou superior.\"');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `switches`
+--
+
+CREATE TABLE `switches` (
+  `id_pk_switches` int(5) NOT NULL,
+  `nome` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Despejando dados para a tabela `switches`
+--
+
+INSERT INTO `switches` (`id_pk_switches`, `nome`) VALUES
+(1, 'OS2220'),
+(2, 'OS6350'),
+(3, 'OS6450'),
+(4, 'OS6465'),
+(5, 'OS6560'),
+(6, 'OS6860'),
+(7, 'OS6865'),
+(8, 'OS6900'),
+(9, 'OS9900'),
+(10, 'AP1101'),
+(11, 'AP1201'),
+(12, 'AP1201H'),
+(19, 'AP1220 (1221/1222)'),
+(20, 'AP1230 (1231/1232)'),
+(21, 'AP1251'),
+(22, 'TODOS OS MODELOS'),
+(23, '6350 e 6450 - AOS 6'),
+(26, '6465, 6560, 6860, 6865, 6900 e 9900 - AOS 8'),
+(27, 'OV 2500'),
+(28, 'TODOS OS MODELOS LAN'),
+(29, 'TODOS OS MODELOS WLAN');
+
+--
+-- Índices de tabelas apagadas
+--
+
+--
+-- Índices de tabela `dados`
+--
+ALTER TABLE `dados`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_fk_switches` (`id_pk_switches`);
+
+--
+-- Índices de tabela `switches`
+--
+ALTER TABLE `switches`
+  ADD PRIMARY KEY (`id_pk_switches`);
+
+--
+-- AUTO_INCREMENT de tabelas apagadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `dados`
+--
+ALTER TABLE `dados`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT de tabela `switches`
+--
+ALTER TABLE `switches`
+  MODIFY `id_pk_switches` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- Restrições para dumps de tabelas
+--
+
+--
+-- Restrições para tabelas `dados`
+--
+ALTER TABLE `dados`
+  ADD CONSTRAINT `id_fk_switches` FOREIGN KEY (`id_pk_switches`) REFERENCES `switches` (`id_pk_switches`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
